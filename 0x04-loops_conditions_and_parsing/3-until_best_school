@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+# This script prints "Best School" with until
 i=10
 until [ "$i" -lt 1 ]
-do
-echo "Best School"
-i=$((i-1))
+	do
+	echo "Best School"
+	i=$((i-1))
 done
