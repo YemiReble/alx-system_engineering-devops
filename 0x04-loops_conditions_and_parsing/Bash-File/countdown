@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script starts countdown
+n=0
+while :
+do
+echo Countdown: $n
+((n++))
+done
