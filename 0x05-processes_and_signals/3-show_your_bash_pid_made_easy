@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# This is  a Bash script that displays its own PID
-echo $$ bash
-echo $BASHPID bash
+# This is  a Bash script displays its own PID
+# And also the Bash PID
+pgrep -l bash
