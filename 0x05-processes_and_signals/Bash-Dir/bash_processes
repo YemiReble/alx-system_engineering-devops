@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This Bash script that displays a list of currently running processes
+top - active
+ps
+htop - active
+ps auxf
+ps auxf | grep bash
