@@ -4,6 +4,8 @@
 # In a list format
 # Where only the part of the name after the first dash is displayed
 
-for i in $(ls /home/); do
-	echo "$i"
+dirlist=$(ls)
+
+for i in $dirlist; do
+	echo "$i" | cut -d "-" -f2
 done
