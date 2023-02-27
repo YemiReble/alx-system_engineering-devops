@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A Bash script that stops bash processes.
+
+sudo pkill -f 100-process_and_pid_file
