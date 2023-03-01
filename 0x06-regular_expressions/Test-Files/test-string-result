@@ -1,0 +1,89 @@
+# Task 0:
+```
+School
+school
+Sch00l
+"Best School
+"School Best School"
+"Grace Hopper"
+
+Code: /School/
+
+Result:
+School
+NULL
+NULL
+School
+ScboolSchool
+NULL
+
+
+# Task 1
+hbn
+hbtn
+hbttn
+hbtttn
+hbttttn
+hbtttttn
+hbttttttn
+
+Code: /hbt{2,5}n/
+
+Result:
+hbttn
+hbtttn
+hbttttn
+hbtttttn
+
+
+# Task 2
+htn
+hbtn
+hbbtn
+hbbbtn
+
+Code: /hb?t{1}n/
+
+Result:
+htn
+hbtn
+
+
+# Task 3
+hbn
+hbtn
+hbttn
+hbtttn
+hbttttn
+
+Code: /hbt{1,}n/
+
+Result:
+hbtn
+hbttn
+hbtttn
+hbttttn
+
+
+# Task 4
+hbn
+hbon
+hbtn
+hbttn
+hbtttn
+hbttttn
+
+Code:
+hbn
+hbtn
+hbttn
+hbtttn
+hbttttn
+
+
+
+
+
+
+End of file
+```
