@@ -5,14 +5,5 @@
 # with the user ubuntu.
 
 # Server to connect to
-sever_ip=8.8.8.8
-username=ubuntu
 
-# Private Key Path
-private_key=~/.ssh/school
-
-# Loading Private Key
-ssh-add $private_key
-
-
-ssh $username@$server_ip
+ssh ubuntu@8.8.8.8
