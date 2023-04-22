@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A Bash Script that creates an SSH-keys
+
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/school -N "betty"
