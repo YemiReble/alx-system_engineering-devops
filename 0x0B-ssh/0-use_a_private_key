@@ -5,4 +5,4 @@
 
 # Server to connect to
 
-ssh-copy-id ubuntu@8.8.8.8
+ssh ubuntu@8.8.8.8
