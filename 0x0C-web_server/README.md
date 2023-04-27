@@ -28,13 +28,13 @@ vagrant@ubuntu$
 * Not found HTTP response code
 * Logs files on Linux
 
-###For reference:
+### For reference:
 * RFC 7231 (HTTP/1.1)
 * RFC 7540 (HTTP/2)
 
 ### man or help:
-scp
-curl
+* scp
+* curl
 
 ## Learning Objectives
 * What is the main role of a web server
