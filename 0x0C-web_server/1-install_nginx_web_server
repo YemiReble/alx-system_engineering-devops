@@ -3,3 +3,5 @@
 # It get run
 
 sudo apt-get install nginx -y
+
+sudo echo "Hello World!" > /var/www/html/index.html
