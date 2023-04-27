@@ -2,6 +2,8 @@
 # This script will install Nginx on any server
 # It get run
 
+sudo apt-get update
 sudo apt-get install nginx -y
-
-sudo echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
+ufw allow 'Nginx HTTP'
+service nginx start
