@@ -19,5 +19,5 @@ elif [ "$#" -lt 4 ]
 then
     scp -o StrictHostKeyChecking=no "$file" "$username"@"$IP":~/
 else
-    scp "$path" StrictHostKeyChecking=no -o "$file" "$username"@"$IP":~/
+    scp -i "$path" StrictHostKeyChecking=no -o "$file" "$username"@"$IP":~/
 fi
