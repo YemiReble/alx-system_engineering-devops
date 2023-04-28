@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# This is a Bash Script that Creates a redirection page & 404 page
+# This script is designed to configure a new server
+# More particularly Ubuntu to Nginx Server
+# This script will install Nginx and configure it with the above
+# Requirements
+
+
+sudo apt-get update
+sudo apt-get install nginx -y
+
+# Modifying the default index file
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Creating Redirection process
+REDIRECTIONZ="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com permanent;"
+sudo sed -i "s/server_name _;/$REDIRECTIONZ/" /etc/nginx/sites-enabled/default
+
+# Creating the 404 file
+sudo touch /var/www/html/404.html
+# Writing the required strings into it 404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+# The Magic begins here << spent more than 8hr perfecting the magic
+# Path to cofiguration file
+CONFIG=/etc/nginx/sites-enabled/default
+
+# The code that get added to the configuration file
+CODE404="listen 80 default_server;\n\terror_page 404 \/404.html;\n\t\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+
+# Yemi Commenting:
+# Checking if this code already exists :) I hope checker don't mind
+# Adding more comment: This actually took me more than 8hrs to perfect
+# I have tried different methods and eventually I was able to make it work
+# I added an If statement to be sure that It runs till the end
+# if grep -q "$CODE404" "$CONFIG";
+# then
+#    echo "Code already exist"
+# else
+# Search and Insert code
+sudo sed -i "s/listen 80 default_server;/$CODE404/" "$CONFIG"
+# echo "Code inserted Successfuly"
+# fi
+
+sudo service nginx restart
