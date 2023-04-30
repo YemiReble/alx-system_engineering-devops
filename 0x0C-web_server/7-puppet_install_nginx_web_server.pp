@@ -1,38 +1,26 @@
 # This Puppet file updates, install
 # Creates files and configure a web server
 
-class { 'apt::update':
-    before  =>  Class['::apt'],
+package {'nginx':
+  ensure => 'present',
 }
 
-package { 'nginx':
-    ensure  =>  installed
+exec {'install':
+  command  => 'sudo apt-get update ; sudo apt-get -y install nginx',
+  provider => shell,
+
 }
 
-file { '/var/www/html/index.html':
-    ensure  =>  present,
-    content =>  'Hello World!',
-    # require =>  Class['sudo'],
-    mode    =>   '0644',
-    owner   =>  'root',
-    group   =>  'root',
+exec {'Hello':
+  command  => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
+  provider => shell,
 }
 
-file_line { '/etc/nginx/sites-enabled/default':
-    ensure  =>  present,
-    match   =>  'server_name _;',
-    content =>  '/redirect_me /https://www.youtube.com permanent;',
-    mode    =>  '0644',
-    owner   =>  'root',
-    group   =>  'root',
+exec {'sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/blog.ehoneahobed.com\/;\\n\\t}/" /etc/nginx/sites-available/default':
+  provider => shell,
 }
 
-#file_line { '/etc/nginx/sites-enabled/default':
-#    ensure  =>  present,
-#    content =>  "error_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}",
-#    match   =>  'listen 80 default_server;',
-
-exec { 'run':
-    command     =>  'sudo service nginx restart',
-    provider    =>  shell,
+exec {'run':
+  command  => 'sudo service nginx restart',
+  provider => shell,
 }
