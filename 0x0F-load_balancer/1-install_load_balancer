@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This is a Bash that configure a New Server (Load Balancer) To meet a certain requirement as written below.
 
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install haproxy -y
 
 # Configuration
