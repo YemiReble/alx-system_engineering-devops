@@ -25,9 +25,5 @@ exec { "redirection and header":
 
 # Restart Nginx
 exec { "start":
-    command     =>  "sudo systemctl restart nginx"
+    command     =>  "sudo service nginx restart"
     provider    => shell
-
-
-
-
