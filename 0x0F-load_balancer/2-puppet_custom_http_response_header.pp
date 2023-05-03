@@ -1,23 +1,22 @@
 # Puppet That configure a new server with a Header
 
-# Making Sure Nginx is available on the server.
+# Class run all command sequentially!
+
 package { 'nginx':
-    ensure  =>  present
+    ensure => present,
 }
-
-# Install Nginx
 exec { 'install':
-    command =>  'sudo apt-get update ; sudo apt-get install nginx -y'
+    command => 'sudo apt-get update ; sudo apt-get install nginx -y',
+    require => Package['nginx'],
 }
-
-# Add Header and Redirection code to the Exisiting commands in site enabled
--> file_line { 'http_header':
-    path  => '/etc/nginx/sites-enabled/default',
-    match => 'http{',
-    line  => "http{\n\tadd_header X-Server-By \"${hostname}\";",
+file_line { 'http_header':
+    path    => '/etc/nginx/sites-enabled/default',
+    match   => 'http {',
+    line    => "http {\n\tadd_header X-Server-By \"${hostname}\";",
+    require => Exec['install'],
 }
-
-# Restart Nginx
 exec { 'run':
-    command =>  'sudo service nginx restart'
+    command => 'sudo service nginx restart',
+    require => File_line['http_header'],
 }
+
