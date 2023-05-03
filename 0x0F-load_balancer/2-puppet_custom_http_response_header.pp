@@ -11,19 +11,14 @@ exec { "install":
     provider    =>  shell
 }
 
-# Create An Index File that says Hello
-exec { "text":
-    command     =>  "echo 'Hello World!' | sudo tee /var/www/html/index.html",
-    provider    =>  shell
-}
-
 # Add Header and Redirection code to the Exisiting commands in site enabled
-exec { "redirection and header":
-    command     => "sudo sed -i 's/server_name _;/\n\tadd_header X-Server-By '$hostname';\n\trewrite \/redirect_me https:\/\/www.youtube.com permanent;' /etc/nginx/sites-enabled/default",
-    provider    =>  shell
+file_line { "http_header":
+    path    =>  /etc/nginx/sites-enabled/default,
+    match   =>  'http{',
+    line    =>  "http{\n\tadd_header X-Server-By \"${hostname}\";",
 }
 
 # Restart Nginx
-exec { "start":
+exec { "run":
     command     =>  "sudo service nginx restart"
     provider    => shell
