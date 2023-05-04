@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # This is a bash scirpt that configures a new server with a lot of things :)
 
-#sudo apt-get update
-#sudo apt-get nginx -y
+sudo apt-get update -y
+sudo apt-get nginx -y
 
 #sudo ufw allow 'Nginx HTTP'
 
