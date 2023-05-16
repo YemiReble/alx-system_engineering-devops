@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # This bash script takes an argument and run whoami command
+# Here is how it works:
+# whoami is runned by the sudo -u command, making whoami thinks
+# the argument passed to this app is the name of the user.
 
 sudo -u "$1" whoami
