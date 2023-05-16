@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This bash script takes in an agrument and display the name passed in
+arg="$1"
+sudo -u "$arg" whoami
