@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This bash script creates a new user [nginx] and make nginx
+# run on it and all available port 8080
+
+# Create a new user
+#sudo adduser -gecos "" nginx
+
+# Configuring Nginx file to make user = nginx
+sudo sed -i 's/user www-data;/user nginx;/' /etc/nginx/nginx.conf
+
+# Congiguring port 80 to 8080
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+
+# Change permission
+sudo chmod 644 /etc/nginx/nginx.conf
+
+# Restarting service
+sudo -u nginx service nginx start
