@@ -20,4 +20,4 @@
 * Why database backups need to be stored in different physical locations
 * What operation should you regularly perform to make sure that your database backup strategy actually works
 
-Have fun lokking around
+Have fun looking around
