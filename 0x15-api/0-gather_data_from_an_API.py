@@ -4,9 +4,9 @@ A python script that create an API using the below url
 """
 
 
-import urllib.request
 import json
 import sys
+import urllib.request
 
 if __name__ == '__main__':
     employeeId = sys.argv[1]
