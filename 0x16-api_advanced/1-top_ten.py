@@ -39,9 +39,12 @@ def top_ten(subreddit):
     hot_post = data['data']['children']
 
     try:
-        # Return the top ten hot topics.
-        for post in range(10):
-            print(hot_post[post]['data']['title'])
+        if hot_post:
+            # Return the top ten hot topics.
+            for post in range(10):
+                print(hot_post[post]['data']['title'])
+        else:
+            print(None)
 
     except Exception:
         return 0
