@@ -28,23 +28,20 @@ def top_ten(subreddit):
     # Make the request.
     response = requests.get(url, headers=browser)
 
-    # Checking the response status code (Testing).
-    # if response.status_code != 200:
-    # return 0
+    # Checking the response status code.
+    if response.status_code != 200:
+        return None
 
     # Parse the response JSON.
     data = response.json()
 
     # Get the data of child-subreddit
-    hot_post = data['data']['children']
-
     try:
-        if hot_post:
-            # Return the top ten hot topics.
-            for post in range(10):
-                print(hot_post[post]['data']['title'])
-        else:
-            print(None)
+        hot_post = data['data']['children']
+
+        # Return the top ten hot topics.
+        for post in range(10):
+            print(hot_post[post]['data']['title'])
 
     except Exception:
-        return 0
+        return None
