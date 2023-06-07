@@ -19,7 +19,7 @@ def recurse(subreddit, hot_list=[]):
 
     # Getting response
     response = requests.get(url, params=parameters, headers=browser,
-                           allow_redirects=False)
+                            allow_redirects=False)
 
     # Checking status and proceeding with data extraction
     if response.status_code == 200:
