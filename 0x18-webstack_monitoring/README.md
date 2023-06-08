@@ -3,7 +3,7 @@
 - [x] SysAdmin
 - [x] monitoring
 
-[Monitoring Servers](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/281/hb3pAsO.png)
+![Monitoring Servers](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/281/hb3pAsO.png)
 
 ## Background Context
 “You cannot fix or improve what you cannot measure” is a famous saying in the Tech industry. In the age of the data-ism,
