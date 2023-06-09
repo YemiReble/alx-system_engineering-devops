@@ -25,7 +25,7 @@ def count_words(subreddit, word_list, count_list=[], next_page=None):
     r = requests.get(url, headers=headers, allow_redirects=False)
 
     if r.status_code != 200:
-        return
+        return None # Remove the None
 
     # load response unit from json
     data = r.json()['data']
@@ -53,4 +53,4 @@ def count_words(subreddit, word_list, count_list=[], next_page=None):
             if word['count'] > 0:
                 print('{}: {}'.format(word['keyword'], word['count']))
                 keywords_matched += 1
-        return
+        return None # Remove the None
