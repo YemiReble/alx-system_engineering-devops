@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script was made to make life of retyping easy for me.
+
+sudo vim /etc/nginx/sites-enabled/default
+# ls /var/www/html/
+# ssh ubuntu@34.224.95.198 -i 'ls ~/'
+
+# This is not neccessary
+# vi /etc/nginx/sites-available/default
+# curl -sI 34.224.95.198 | grep X-Served-By
+# curl -sI 52.87.220.62 | grep X-Served-By
