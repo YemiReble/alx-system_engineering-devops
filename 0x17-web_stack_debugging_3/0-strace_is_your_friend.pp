@@ -1,6 +1,6 @@
 # Fix the Apache2 Server that is returning 500 error
 
-$file2 = '/var/www/html/wp-settings.php'wp-content
+$file2 = '/var/www/html/wp-settings.php'
 
 # Replace the line containing the error "phpp" with "php"
 
