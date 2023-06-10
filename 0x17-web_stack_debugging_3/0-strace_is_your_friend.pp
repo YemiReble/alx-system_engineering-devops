@@ -15,3 +15,12 @@ file { '/etc/php5/apache2/php.ini':
   require => Package['php5'],
   notify  => Service['apache2'],
 }
+
+$file2 = '/var/www/html/wp-settings.php'
+
+# Replace the line containing the error "phpp" with "php"
+
+exec { 'replace_error':
+    command => "sed -i 's/phpp/php/g' ${file2}",
+    path    => ['/bin','/usr/bin']
+}
