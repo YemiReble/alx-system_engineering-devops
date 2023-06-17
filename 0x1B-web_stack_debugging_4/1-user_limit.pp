@@ -8,6 +8,6 @@ exec { 'change-os-configuration-for-holberton-user':
 
 # Increase soft file limit for user 'holberton'
 exec { 'change-os-configuration-for-holberton-user':
-    command => 'sed -i "/holberton soft/s/4/50000/" /etc/security/limits.conf',
+    command => 'sed -i "/holberton soft/s/5/50000/" /etc/security/limits.conf',
     path    => '/usr/local/bin/:/bin/'
 }
